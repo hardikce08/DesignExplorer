@@ -1,0 +1,247 @@
+﻿@{
+    var profile = DesignExplorer.ProfileHelper.Profile;
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="~/Theme/Css/Googlefonts.css" rel="stylesheet" />
+    @Styles.Render("~/Content/DashboardCSS")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+        body {
+            font-family: Verdana !important;
+        }
+    </style>
+</head>
+<body>
+    <section class="body">
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="../" class="logo">
+                    <img src="~/Theme/Images/curise-logo.png" height="35" width="110px !important;" alt="CURise" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a href="#" data-toggle="dropdown">
+                            <figure class="profile-picture">
+                                <img src="~/Theme/Images/!logged-user.png" class="img-circle" data-lock-picture="~/Theme/Images/!logged-user.png" />
+                            </figure>
+                            <div class="profile-info">
+                                <span class="name">@profile.LoggedUserProfile.FirstName  @profile.LoggedUserProfile.LastName</span>
+                                <span class="role">User</span>
+                            </div>
+                            @*@RedirectResult("")*@
+                            <i class="fa custom-caret"></i>
+                        </a>
+                    }
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled">
+                            <li class="divider"></li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="~/User/Update/@profile.LoggedUserProfile.UserID"><i class="fa fa-user"></i> My Profile</a>
+                            </li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="~/User/ChangePassword/@profile.LoggedUserProfile.UserID"><i class="fa fa-key"></i> Change Password</a>
+                            </li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="~/Home/Logout"><i class="fa fa-power-off"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+            <!-- start: sidebar -->
+            <aside id="sidebar-left" class="sidebar-left">
+
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+
+                    </div>
+                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main" id="navmenu" style="font-weight:bold;">
+                                <li class="nav-active" data-menuPageId="home">
+                                    <a href="/Configuration/Index">
+                                        <i class="fa fa-home" aria-hidden="true"></i>
+                                        <span>Configuration</span>
+                                    </a>
+                                </li>
+                                <li data-menuPageId="emailtemplate">
+                                    <a href="/EmailTemplate">
+                                        <i class="fa fa-send" aria-hidden="true"></i>
+                                        <span>Email Template</span>
+                                    </a>
+                                </li>
+                                @*<li data-menuPageId="reports">
+                                    <a href="/Report/Index">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <span>View Report</span>
+                                    </a>
+                                </li>
+                                <li data-menuPageId="mapping">
+                                    <a href="/BulkUpload/CustomMapping">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <span>Custom Mapping</span>
+                                    </a>
+                                </li>
+                                <li class="nav-parent">
+                                    <a>
+                                        <i class="fa fa-copy" aria-hidden="true"></i>
+                                        <span>Reports</span>
+                                    </a>
+                                    <ul class="nav nav-children">
+                                        <li data-menuPageId="search">
+                                            <a href="/Report/Search">
+                                                Search
+                                            </a>
+                                        </li>
+                                        <li data-menuPageId="summarybymember">
+                                            <a href="/Report/SummaryByTotalMember">
+                                                Summary By Total Members
+                                            </a>
+                                        </li>
+                                        <li data-menuPageId="summarybyproduct">
+                                            <a href="/Report/SummaryByTotalProducts">
+                                                Summary By Total Products
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>*@
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+
+            </aside>
+            <!-- end: sidebar -->
+            <section role="main" class="content-body">
+                @RenderBody()
+            </section>
+        </div>
+        <input type="hidden" id="currentPageId" value="@(ViewBag.Page ?? "home")" />
+         
+    </section>
+
+    <!-- Vendor -->
+    <script src="~/Theme/Scripts/jquery.js"></script>
+    <script src="~/Theme/Scripts/jquery.browser.mobile.js"></script>
+    <script src="~/Theme/Scripts/bootstrap.min.js"></script>
+    <script src="~/Theme/Scripts/nanoscroller.js"></script>
+    <script src="~/Theme/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Theme/Scripts/magnific-popup.js"></script>
+    <script src="~/Theme/Scripts/jquery.placeholder.js"></script>
+    <script src="~/Theme/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Theme/Scripts/jquery.ui.touch-punch.js"></script>
+    <script src="~/Theme/Scripts/bootstrap-fileupload.min.js"></script>
+    <script src="~/Theme/Scripts/bootstrap-sortable.js"></script>
+    <!-- Demo Purpose Only -->
+    <script>
+        (function () {
+            $('#listenSlider').change(function () {
+                $('.output b').text(this.value);
+            });
+
+            $('#listenSlider2').change(function () {
+                var min = parseInt(this.value.split('/')[0], 10);
+                var max = parseInt(this.value.split('/')[1], 10);
+
+                $('.output2 b.min').text(min);
+                $('.output2 b.max').text(max);
+            });
+        })();
+    </script>
+    <script>
+        var showLoader = function (form) {
+            $("<div />").css({
+                'position': 'fixed',
+                'left': 0,
+                'right': 0,
+                'bottom': 0,
+                'top': 0,
+                'background': '#0020ff36',
+                'z-index': '99',
+                'text-align': 'center'
+            }).appendTo($("body"))
+                .append(
+                    $("<img />").attr("src", "@Url.Content("~/Theme/Images/Loader.gif")")
+                );
+        }
+
+    </script>
+    <script>
+        $(function () {
+            var pageIdAttr = "data-menuPageId";
+            var currentPage = $("#currentPageId").attr("value");
+            var menu = $("#navmenu");
+            $("#navmenu > li").removeClass('nav-active');
+            $("li[" + pageIdAttr + "=\"" + currentPage + "\"]", menu).addClass('nav-active');
+            if (currentPage == 'search' || currentPage == 'summarybymember' || currentPage == 'summarybyproduct') {
+                $(".nav-parent").addClass('nav-expanded');
+            }
+        });
+    </script>
+    <script src="~/Theme/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Theme/Scripts/pnotify.custom.js"></script>
+    <script src="~/Theme/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Theme/Scripts/datatables.js"></script>
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/Theme/Scripts/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="~/Theme/Scripts/theme.custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="~/Theme/Scripts/theme.init.js"></script>
+    @RenderSection("scripts")
+
+    <!-- Examples -->
+    @*<script src="~/assets/javascripts/dashboard/examples.dashboard.js"></script>*@
+    @*https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif*@
+<script type="text/javascript">
+        $(document).ready(function () {
+              var success = @((TempData["Message"] != null).ToString().ToLower());
+            if (success==true)
+                {
+                    new PNotify({
+                title: 'Congratulations',
+                text: '@TempData["Message"]',
+                type: 'custom',
+                addclass: 'notification-success',
+                icon: 'fa fa-check'
+            });
+
+                }
+            });
+</script>
+</body>
+</html>
