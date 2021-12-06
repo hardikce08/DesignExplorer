@@ -10,238 +10,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- Web Fonts  -->
-    <link href="~/Theme/Css/Googlefonts.css" rel="stylesheet" />
-    @Styles.Render("~/Content/DashboardCSS")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/DashboardCSS")
+    @Scripts.Render("~/bundles/modernizr")*@
 
-    <style type="text/css">
-        body {
-            font-family: Verdana !important;
-        }
-    </style>
+    <!-- Fonts -->
+    @*<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>*@
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
+    <!-- core:css -->
+    <link href="~/Theme/Css/core.css" rel="stylesheet" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link href="~/Theme/Css/iconfont.css" rel="stylesheet" />
+    <link href="~/Theme/Css/flag-icon.min.css" rel="stylesheet" />
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link href="~/Theme/Css/style.css" rel="stylesheet" />
+    <!-- End layout styles -->
 </head>
 <body>
-    <section class="body">
-        <!-- start: header -->
-        <header class="header">
-            <div class="logo-container">
-                <a href="../" class="logo">
-                    <img src="~/Theme/Images/curise-logo.png" height="35" width="110px !important;" alt="CURise" />
+    <div class="main-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    Noble<span>UI</span>
                 </a>
-                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                <div class="sidebar-toggler not-active">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-
-            <!-- start: search & user box -->
-            <div class="header-right">
-                <span class="separator"></span>
-
-                <div id="userbox" class="userbox">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <a href="#" data-toggle="dropdown">
-                            <figure class="profile-picture">
-                                <img src="~/Theme/Images/!logged-user.png" class="img-circle" data-lock-picture="~/Theme/Images/!logged-user.png" />
-                            </figure>
-                            <div class="profile-info">
-                                <span class="name">@profile.LoggedUserProfile.FirstName  @profile.LoggedUserProfile.LastName</span>
-                                <span class="role">User</span>
-                            </div>
-                            @*@RedirectResult("")*@
-                            <i class="fa custom-caret"></i>
+            <div class="sidebar-body">
+                <ul class="nav" id="navmenu">
+                    @*<li class="nav-item nav-category">Main</li>*@
+                    <li class="nav-item" data-menuPageId="home">
+                        <a href="../../dashboard.html" class="nav-link" >
+                            <i class="link-icon" data-feather="box"></i>
+                            <span class="link-title">Dashboard</span>
                         </a>
-                    }
-                    <div class="dropdown-menu">
-                        <ul class="list-unstyled">
-                            <li class="divider"></li>
-                            <li>
-                                <a role="menuitem" tabindex="-1" href="~/User/Update/@profile.LoggedUserProfile.UserID"><i class="fa fa-user"></i> My Profile</a>
-                            </li>
-                            <li>
-                                <a role="menuitem" tabindex="-1" href="~/User/ChangePassword/@profile.LoggedUserProfile.UserID"><i class="fa fa-key"></i> Change Password</a>
-                            </li>
-                            <li>
-                                <a role="menuitem" tabindex="-1" href="~/Home/Logout"><i class="fa fa-power-off"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        @*<nav class="settings-sidebar">
+            <div class="sidebar-body">
+                <a href="#" class="settings-sidebar-toggler">
+                    <i data-feather="settings"></i>
+                </a>
+                <div class="theme-wrapper">
+                    <h6 class="text-muted mb-2">Light Theme:</h6>
+                    <a class="theme-item" href="../../../demo1/dashboard.html">
+                        <img src="../../../assets/images/screenshots/light.jpg" alt="light theme">
+                    </a>
+                    <h6 class="text-muted mb-2">Dark Theme:</h6>
+                    <a class="theme-item active" href="../../../demo2/dashboard.html">
+                        <img src="../../../assets/images/screenshots/dark.jpg" alt="light theme">
+                    </a>
                 </div>
             </div>
-            <!-- end: search & user box -->
-        </header>
-        <!-- end: header -->
+        </nav>*@
+        <!-- partial -->
 
-        <div class="inner-wrapper">
-            <!-- start: sidebar -->
-            <aside id="sidebar-left" class="sidebar-left">
+        <div class="page-wrapper">
 
-                <div class="sidebar-header">
-                    <div class="sidebar-title">
-
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <a href="#" class="sidebar-toggler">
+                    <i data-feather="menu"></i>
+                </a>
+                <div class="navbar-content">
+                    <div class="search-form">
+                        @*<div class="input-group">
+                            <div class="input-group-text">
+                                <i data-feather="search"></i>
+                            </div>
+                            <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+                        </div>*@
+                        <h3>Dashboard</h3>
                     </div>
-                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-                    </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="wd-80 ht-80 rounded-circle" src="https://via.placeholder.com/80x80" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="tx-16 fw-bolder">Amiah Burton</p>
+                                        <p class="tx-12 text-muted">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="../../pages/general/profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+            </nav>
+            <!-- partial -->
 
-                <div>
-                    <div>
-                        <nav id="menu" class="nav-main" role="navigation">
-                            <ul class="nav nav-main" id="navmenu" style="font-weight:bold;">
-                                <li class="nav-active" data-menuPageId="home">
-                                    <a href="/Configuration/Index">
-                                        <i class="fa fa-home" aria-hidden="true"></i>
-                                        <span>Configuration</span>
-                                    </a>
-                                </li>
-                                <li data-menuPageId="emailtemplate">
-                                    <a href="/EmailTemplate">
-                                        <i class="fa fa-send" aria-hidden="true"></i>
-                                        <span>Email Template</span>
-                                    </a>
-                                </li>
-                                @*<li data-menuPageId="reports">
-                                    <a href="/Report/Index">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        <span>View Report</span>
-                                    </a>
-                                </li>
-                                <li data-menuPageId="mapping">
-                                    <a href="/BulkUpload/CustomMapping">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        <span>Custom Mapping</span>
-                                    </a>
-                                </li>
-                                <li class="nav-parent">
-                                    <a>
-                                        <i class="fa fa-copy" aria-hidden="true"></i>
-                                        <span>Reports</span>
-                                    </a>
-                                    <ul class="nav nav-children">
-                                        <li data-menuPageId="search">
-                                            <a href="/Report/Search">
-                                                Search
-                                            </a>
-                                        </li>
-                                        <li data-menuPageId="summarybymember">
-                                            <a href="/Report/SummaryByTotalMember">
-                                                Summary By Total Members
-                                            </a>
-                                        </li>
-                                        <li data-menuPageId="summarybyproduct">
-                                            <a href="/Report/SummaryByTotalProducts">
-                                                Summary By Total Products
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>*@
-                            </ul>
-                        </nav>
-                    </div>
-
-                </div>
-
-            </aside>
-            <!-- end: sidebar -->
-            <section role="main" class="content-body">
+            <div class="page-content">
                 @RenderBody()
-            </section>
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-muted mb-1 mb-md-0">Copyright © 2021 <a href="https://www.nobleui.com" target="_blank">NobleUI</a>.</p>
+                <p class="text-muted">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
+            </footer>
+            <!-- partial -->
+            <input type="hidden" id="currentPageId" value="@(ViewBag.Page ?? "home")" />
         </div>
-        <input type="hidden" id="currentPageId" value="@(ViewBag.Page ?? "home")" />
-         
-    </section>
-
-    <!-- Vendor -->
-    <script src="~/Theme/Scripts/jquery.js"></script>
-    <script src="~/Theme/Scripts/jquery.browser.mobile.js"></script>
-    <script src="~/Theme/Scripts/bootstrap.min.js"></script>
-    <script src="~/Theme/Scripts/nanoscroller.js"></script>
-    <script src="~/Theme/Scripts/bootstrap-datepicker.js"></script>
-    <script src="~/Theme/Scripts/magnific-popup.js"></script>
-    <script src="~/Theme/Scripts/jquery.placeholder.js"></script>
-    <script src="~/Theme/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
-    <script src="~/Theme/Scripts/jquery.ui.touch-punch.js"></script>
-    <script src="~/Theme/Scripts/bootstrap-fileupload.min.js"></script>
-    <script src="~/Theme/Scripts/bootstrap-sortable.js"></script>
-    <!-- Demo Purpose Only -->
-    <script>
-        (function () {
-            $('#listenSlider').change(function () {
-                $('.output b').text(this.value);
-            });
-
-            $('#listenSlider2').change(function () {
-                var min = parseInt(this.value.split('/')[0], 10);
-                var max = parseInt(this.value.split('/')[1], 10);
-
-                $('.output2 b.min').text(min);
-                $('.output2 b.max').text(max);
-            });
-        })();
-    </script>
-    <script>
-        var showLoader = function (form) {
-            $("<div />").css({
-                'position': 'fixed',
-                'left': 0,
-                'right': 0,
-                'bottom': 0,
-                'top': 0,
-                'background': '#0020ff36',
-                'z-index': '99',
-                'text-align': 'center'
-            }).appendTo($("body"))
-                .append(
-                    $("<img />").attr("src", "@Url.Content("~/Theme/Images/Loader.gif")")
-                );
-        }
-
-    </script>
+    </div>
+    <!-- core:js -->
+    <script src="~/Theme/Scripts/core.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/Theme/Scripts/feather.min.js"></script>
+    <script src="~/Theme/Scripts/template.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
     <script>
         $(function () {
             var pageIdAttr = "data-menuPageId";
             var currentPage = $("#currentPageId").attr("value");
             var menu = $("#navmenu");
             $("#navmenu > li").removeClass('nav-active');
-            $("li[" + pageIdAttr + "=\"" + currentPage + "\"]", menu).addClass('nav-active');
-            if (currentPage == 'search' || currentPage == 'summarybymember' || currentPage == 'summarybyproduct') {
-                $(".nav-parent").addClass('nav-expanded');
-            }
+            $("li[" + pageIdAttr + "=\"" + currentPage + "\"]", menu).addClass('nav-item active');
+            //if (currentPage == 'search' || currentPage == 'summarybymember' || currentPage == 'summarybyproduct') {
+            //    $(".nav-parent").addClass('nav-expanded');
+            //}
         });
     </script>
-    <script src="~/Theme/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Theme/Scripts/pnotify.custom.js"></script>
-    <script src="~/Theme/Scripts/jquery.dataTables.js"></script>
-    <script src="~/Theme/Scripts/datatables.js"></script>
-    <!-- Theme Base, Components and Settings -->
-    <script src="~/Theme/Scripts/theme.js"></script>
-
-    <!-- Theme Custom -->
-    <script src="~/Theme/Scripts/theme.custom.js"></script>
-
-    <!-- Theme Initialization Files -->
-    <script src="~/Theme/Scripts/theme.init.js"></script>
-    @RenderSection("scripts")
-
-    <!-- Examples -->
-    @*<script src="~/assets/javascripts/dashboard/examples.dashboard.js"></script>*@
-    @*https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif*@
-<script type="text/javascript">
-        $(document).ready(function () {
-              var success = @((TempData["Message"] != null).ToString().ToLower());
-            if (success==true)
-                {
-                    new PNotify({
-                title: 'Congratulations',
-                text: '@TempData["Message"]',
-                type: 'custom',
-                addclass: 'notification-success',
-                icon: 'fa fa-check'
-            });
-
-                }
-            });
-</script>
 </body>
 </html>

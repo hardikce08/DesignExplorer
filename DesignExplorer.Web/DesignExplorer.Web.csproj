@@ -135,14 +135,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HangfireJobsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
-    <Compile Include="Areas\Admin\Models\CheckAuthorization.cs" />
-    <Compile Include="Areas\Admin\Models\HangFireJobsViewModel.cs" />
-    <Compile Include="Areas\Admin\ProfileHelper.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -155,20 +147,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Theme\css\all.min.css" />
-    <Content Include="Areas\Admin\Theme\css\dataTables.bootstrap4.css" />
-    <Content Include="Areas\Admin\Theme\css\fontawesome.min.css" />
-    <Content Include="Areas\Admin\Theme\css\Googlefonts.css" />
-    <Content Include="Areas\Admin\Theme\css\sb-admin-2.min.css" />
-    <Content Include="Areas\Admin\Theme\js\bootstrap.bundle.js" />
-    <Content Include="Areas\Admin\Theme\js\dataTables.bootstrap4.min.js" />
-    <Content Include="Areas\Admin\Theme\js\jquery.dataTables.min.js" />
-    <Content Include="Areas\Admin\Theme\js\jquery.easing.min.js" />
-    <Content Include="Areas\Admin\Theme\js\jquery.min.js" />
-    <Content Include="Areas\Admin\Theme\js\sb-admin-2.min.js" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-brands-400.svg" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-regular-400.svg" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-solid-900.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -179,26 +157,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Theme\js\bootstrap.bundle.js.map" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-brands-400.eot" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-brands-400.ttf" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-brands-400.woff" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-brands-400.woff2" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-regular-400.eot" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-regular-400.ttf" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-regular-400.woff" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-regular-400.woff2" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-solid-900.eot" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-solid-900.ttf" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-solid-900.woff" />
-    <Content Include="Areas\Admin\Theme\webfonts\fa-solid-900.woff2" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\User\EditUser.cshtml" />
-    <Content Include="Areas\Admin\Views\User\List.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\HangfireJobs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -210,7 +168,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Theme\Css\siqtheme.css" />
+    <Content Include="Theme\Css\core.css" />
+    <Content Include="Theme\Css\flag-icon.min.css" />
+    <Content Include="Theme\Css\iconfont.css" />
+    <Content Include="Theme\Css\style.css" />
+    <Content Include="Theme\Css\style.min.css" />
+    <Content Include="Theme\Scripts\core.js" />
+    <Content Include="Theme\Scripts\feather.min.js" />
+    <Content Include="Theme\Scripts\template.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,15 +190,13 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\User\Update.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Theme\img\" />
-    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\" />
     <Folder Include="Theme\fonts\" />
     <Folder Include="Theme\Images\" />
-    <Folder Include="Theme\Scripts\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -281,7 +244,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49549</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49550/</IISUrl>
+          <IISUrl>http://localhost:8081/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
