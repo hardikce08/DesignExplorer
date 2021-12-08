@@ -44,8 +44,11 @@ namespace DesignExplorer.Web.Controllers
                 if (_currentProfile == null)
                 {
                     _currentProfile = ProfileHelper.Profile;
+                    if (_currentProfile == null)
+                    {
+                        RedirectToAction("Login", "Home");
+                    }
                 }
-
                 return _currentProfile;
             }
         }
